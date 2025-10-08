@@ -33,7 +33,7 @@ public class recargaTren {
             }
         });
         selectorMes.setMonth(0);
-        ImageIcon imagen = new ImageIcon("recursos/logo.jpg");
+        ImageIcon imagen = new ImageIcon("recursos/logoTren.jpg");
         LOGO.setIcon(imagen);
     }
 

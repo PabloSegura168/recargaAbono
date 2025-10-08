@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Locale;
@@ -51,20 +52,20 @@ public class recargaBus extends JFrame { // Nombre de clase corregido
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
+
         try {
-            // Cargamos la imagen desde la ruta local usando un objeto File
-            java.io.File logoFile = new java.io.File("C:\\Users\\gonbe\\Downloads\\logo-vector-tussam_0.png");
-            BufferedImage originalImage = ImageIO.read(logoFile);
+            // 1. Carga la imagen original desde el archivo
+            BufferedImage imagenOriginal = ImageIO.read(new File("recursos/logoBus.png"));
 
-            // Redimensionamos la imagen para que se ajuste mejor a la UI
-            int newHeight = 80; // Altura deseada
-            Image scaledImage = originalImage.getScaledInstance(-1, newHeight, Image.SCALE_SMOOTH);
-            JLabel logoLabel = new JLabel(new ImageIcon(scaledImage));
+            // 2. Define la nueva altura y redimensiona la imagen manteniendo la proporción
+            int nuevaAltura = 60; // <-- ¡Puedes cambiar este valor para hacerlo más grande o pequeño!
+            Image imagenRedimensionada = imagenOriginal.getScaledInstance(-1, nuevaAltura, Image.SCALE_SMOOTH);
+
+            // 3. Crea el JLabel con la nueva imagen redimensionada
+            JLabel logoLabel = new JLabel(new ImageIcon(imagenRedimensionada));
             panel.add(logoLabel, gbc);
-
         } catch (IOException e) {
-            System.err.println("No se pudo cargar el logo: " + e.getMessage());
-            // Si no se carga, simplemente no se añade el logo, pero la app sigue funcionando.
+            System.err.println("Error: No se pudo encontrar o cargar la imagen del logo en 'recursos/logoBus.png'");
         }
 
         // Etiqueta de instrucción
