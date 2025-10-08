@@ -5,8 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Clase recargaTren
- * -----------------
+ * Clase recargaTren.
  * Esta clase implementa una interfaz gráfica en Java Swing para simular la recarga
  * de un abono de transporte mensual. Incluye un selector de mes, botones de acción
  * y un logotipo visual.
